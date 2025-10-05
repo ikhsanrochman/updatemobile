@@ -1,0 +1,83 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+.breadcrumb-section {
+    background-color: #002B5B !important;
+}
+
+.bg-dark-blue {
+    background-color: #002B5B !important; /* Adjusted to match the image */
+}
+
+.text-dark-blue {
+    color: #002B5B !important;
+}
+
+.btn-dark-blue {
+    background-color: #002B5B;
+    border-color: #002B5B;
+    color: #fff;
+}
+
+.btn-dark-blue:hover {
+    background-color: #001f42;
+    border-color: #001f42;
+    color: #fff;
+}
+
+.table thead th {
+    background-color: #002B5B; /* Adjusted to match the image */
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.table td {
+    font-size: 0.875rem;
+    vertical-align: middle;
+}
+
+.badge {
+    font-size: 0.75rem;
+}
+
+.form-check-input:checked {
+    background-color: #1e3a5f;
+    border-color: #1e3a5f;
+}
+
+/* Pagination button styling */
+.pagination .btn-dark-blue {
+    background-color: #002B5B;
+    border-color: #002B5B;
+    color: #fff;
+    margin: 0 2px;
+    border-radius: .25rem; /* Bootstrap default for buttons */
+}
+
+.pagination .btn-dark-blue:hover {
+    background-color: #001f42;
+    border-color: #001f42;
+}
+
+.pagination .page-item.active .btn-dark-blue {
+    background-color: #fff;
+    border-color: #002B5B;
+    color: #002B5B;
+}
+
+.pagination .page-item:first-child .btn-dark-blue {
+    border-top-left-radius: .25rem;
+    border-bottom-left-radius: .25rem;
+}
+
+.pagination .page-item:last-child .btn-dark-blue {
+    border-top-right-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+}
