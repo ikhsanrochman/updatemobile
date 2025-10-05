@@ -2,6 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Sistem Pelaporan Dosis Radiasi</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -44,6 +45,64 @@
             position: relative;
             z-index: 2;
             animation: containerFadeIn 1s ease-out;
+        }
+
+        /* Responsive untuk mobile */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+            
+            .login-container {
+                max-width: 95%;
+                padding: 2.5rem 2rem;
+                margin: 0 auto;
+            }
+            
+            .form-control {
+                font-size: 18px !important;
+                padding: 14px 10px !important;
+                min-height: 50px;
+            }
+            
+            .form-label {
+                font-size: 18px !important;
+                margin-bottom: 10px;
+            }
+            
+            .input-group-text {
+                font-size: 20px !important;
+                padding: 14px 15px !important;
+                min-height: 50px;
+            }
+            
+            .btn-login {
+                padding: 14px !important;
+                font-size: 18px !important;
+                min-height: 50px;
+            }
+            
+            h4 {
+                font-size: 2rem !important;
+                margin-bottom: 2rem !important;
+            }
+            
+            .form-check-label, .forgot-password {
+                font-size: 1rem !important;
+            }
+            
+            .captcha-img {
+                max-width: 100%;
+                height: auto;
+            }
+            
+            .top-bar {
+                padding: 15px 20px !important;
+            }
+            
+            .top-bar .brand-logo {
+                font-size: 1.3rem !important;
+            }
         }
 
         @keyframes containerFadeIn {
