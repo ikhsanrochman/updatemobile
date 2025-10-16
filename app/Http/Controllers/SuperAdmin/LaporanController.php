@@ -86,4 +86,18 @@ class LaporanController extends Controller
         // Download the PDF
         return $pdf->download($filename);
     }
+
+    public function downloadPemantauanOnly($id)
+    {
+        $project = Project::with([
+            'ketersediaanSdm.users',
+            'pemantauanDosisTld.user',
+            'pemantauanDosisPendose'
+        ])->findOrFail($id);
+
+        $pdf = Pdf::loadView('super_admin.laporan.project_pemantauan_pdf', compact('project'));
+        $pdf->setPaper('A4', 'portrait');
+        $filename = 'Laporan_Pemantauan_' . str_replace(' ', '_', $project->nama_proyek) . '_' . date('Y-m-d_H-i-s') . '.pdf';
+        return $pdf->download($filename);
+    }
 } 

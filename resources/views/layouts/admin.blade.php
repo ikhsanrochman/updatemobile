@@ -35,7 +35,7 @@
         
         .content-wrapper {
             margin-left: 280px;
-            padding-top: 90px;
+            padding-top: 110px;
             padding-left: 20px;
             padding-right: 20px;
             min-height: 100vh;
@@ -77,7 +77,7 @@
         @media (max-width: 768px) {
             .content-wrapper {
                 margin-left: 0;
-                padding-top: 75px;
+                padding-top: 95px;
                 padding-left: 15px;
                 padding-right: 15px;
             }
@@ -131,7 +131,7 @@
         .breadcrumb-section {
             margin: 0 -20px 2rem -20px;
             position: fixed;
-            top: 70px;
+            top: 80px;
             left: 280px;
             right: 30px;
             z-index: 999;

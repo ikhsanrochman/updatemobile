@@ -1,6 +1,7 @@
 @extends('layouts.super_admin')
 
 @section('content')
+<div style="margin-top: 90px;"></div>
 
 
 @push('scripts')
@@ -42,6 +43,11 @@
                     <i class="fas fa-download me-2"></i>
                     <span class="d-none d-sm-inline">Download Laporan</span>
                     <span class="d-inline d-sm-none">Download</span>
+                </a>
+                <a href="{{ route('super_admin.laporan.project.download_pemantauan', $project->id) }}" class="btn btn-outline-primary">
+                    <i class="fas fa-file-download me-2"></i>
+                    <span class="d-none d-sm-inline">Download Pemantauan (TLD & Pendose)</span>
+                    <span class="d-inline d-sm-none">Download Pemantauan</span>
                 </a>
                 <a href="{{ route('super_admin.laporan') }}" class="btn btn-secondary">
                     <i class="fas fa-arrow-left me-2"></i>

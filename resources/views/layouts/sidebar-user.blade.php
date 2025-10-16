@@ -30,6 +30,13 @@
                 <span>Profile</span>
             </a>
         </div>
+
+        <div class="menu-wrap">
+            <a href="{{ route('user.pemantauan.index') }}" class="menu-item {{ Request::routeIs('user.pemantauan.*') ? 'active' : '' }}">
+                <i class="fas fa-radiation me-2"></i>
+                <span>Pemantauan (TLD & Pendose)</span>
+            </a>
+        </div>
        
         <div class="menu-wrap">
             <a href="#" class="menu-item" onclick="event.preventDefault(); showLogoutConfirmation();">

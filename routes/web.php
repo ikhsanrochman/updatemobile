@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\PerizinanController;
 use App\Http\Controllers\Admin\PemantauanController;
 use App\Http\Controllers\User\UserProfileController;
+use App\Http\Controllers\User\PemantauanController as UserPemantauanController;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
 
@@ -134,6 +135,7 @@ Route::middleware(['auth', 'role:1'])->prefix('super-admin')->name('super_admin.
     Route::get('/laporan', [LaporanController::class, 'index'])->name('laporan');
     Route::get('/laporan/{id}', [LaporanController::class, 'projectDetail'])->name('laporan.project_detail');
     Route::get('/laporan/{id}/download', [LaporanController::class, 'downloadProjectReport'])->name('laporan.project.download');
+    Route::get('/laporan/{id}/download-pemantauan', [LaporanController::class, 'downloadPemantauanOnly'])->name('laporan.project.download_pemantauan');
 
     // Dokumen
     Route::resource('documents', App\Http\Controllers\SuperAdmin\DocumentController::class);
@@ -230,6 +232,7 @@ Route::middleware(['auth', 'role:2'])->prefix('admin')->name('admin.')->group(fu
     Route::get('/laporan', [App\Http\Controllers\Admin\LaporanController::class, 'index'])->name('laporan.index');
     Route::get('/laporan/project/{id}', [App\Http\Controllers\Admin\LaporanController::class, 'projectDetail'])->name('laporan.project_detail');
     Route::get('/laporan/project/{id}/download', [App\Http\Controllers\Admin\LaporanController::class, 'downloadProjectDetail'])->name('laporan.project.download');
+    Route::get('/laporan/project/{id}/download-pemantauan', [App\Http\Controllers\Admin\LaporanController::class, 'downloadPemantauanOnly'])->name('laporan.project.download_pemantauan');
 
     // Documents
     Route::get('/dokumen', [App\Http\Controllers\Admin\DocumentController::class, 'index'])->name('dokumen.index');
@@ -273,4 +276,22 @@ Route::middleware(['auth', 'role:3'])->prefix('user')->name('user.')->group(func
     Route::get('/profile', [UserProfileController::class, 'index'])->name('profile.index');
     Route::put('/profile/update', [UserProfileController::class, 'update'])->name('profile.update');
     Route::put('/profile/update-password', [UserProfileController::class, 'updatePassword'])->name('profile.update_password');
+
+    // Pemantauan (User self input TLD & Pendose)
+    Route::get('/pemantauan', [UserPemantauanController::class, 'index'])->name('pemantauan.index');
+    Route::get('/pemantauan/{projectId}', [UserPemantauanController::class, 'detail'])->name('pemantauan.detail');
+
+    // TLD
+    Route::get('/pemantauan/{projectId}/tld/create', [UserPemantauanController::class, 'tldCreate'])->name('pemantauan.tld.create');
+    Route::post('/pemantauan/{projectId}/tld/store', [UserPemantauanController::class, 'tldStore'])->name('pemantauan.tld.store');
+    Route::get('/pemantauan/{projectId}/tld/{dosisId}/edit', [UserPemantauanController::class, 'tldEdit'])->name('pemantauan.tld.edit');
+    Route::put('/pemantauan/{projectId}/tld/{dosisId}/update', [UserPemantauanController::class, 'tldUpdate'])->name('pemantauan.tld.update');
+    Route::delete('/pemantauan/{projectId}/tld/{dosisId}/destroy', [UserPemantauanController::class, 'tldDestroy'])->name('pemantauan.tld.destroy');
+
+    // Pendose
+    Route::get('/pemantauan/{projectId}/pendos/create', [UserPemantauanController::class, 'pendosCreate'])->name('pemantauan.pendos.create');
+    Route::post('/pemantauan/{projectId}/pendos/store', [UserPemantauanController::class, 'pendosStore'])->name('pemantauan.pendos.store');
+    Route::get('/pemantauan/{projectId}/pendos/{dosisId}/edit', [UserPemantauanController::class, 'pendosEdit'])->name('pemantauan.pendos.edit');
+    Route::put('/pemantauan/{projectId}/pendos/{dosisId}/update', [UserPemantauanController::class, 'pendosUpdate'])->name('pemantauan.pendos.update');
+    Route::delete('/pemantauan/{projectId}/pendos/{dosisId}/destroy', [UserPemantauanController::class, 'pendosDestroy'])->name('pemantauan.pendos.destroy');
 });

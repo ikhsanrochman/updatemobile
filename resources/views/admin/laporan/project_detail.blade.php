@@ -4,7 +4,7 @@
 <!-- Breadcrumb Section -->
 
 
-<div style="margin-top: 50px;"></div>
+<div style="margin-top: 90px;"></div>
 
 @push('scripts')
 <script>
@@ -43,6 +43,9 @@
             <div class="d-flex gap-2">
                 <a href="{{ route('admin.laporan.project.download', $project->id) }}" class="btn btn-success">
                     <i class="fas fa-download me-2"></i>Download Laporan
+                </a>
+                <a href="{{ route('admin.laporan.project.download_pemantauan', $project->id) }}" class="btn btn-outline-primary">
+                    <i class="fas fa-file-download me-2"></i>Download Pemantauan (TLD & Pendose)
                 </a>
                 <a href="{{ route('admin.laporan.index') }}" class="btn btn-secondary">
                     <i class="fas fa-arrow-left me-2"></i>Kembali
